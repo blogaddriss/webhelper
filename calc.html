@@ -7,54 +7,72 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Калькулятор</h1>
-	<a href="index.html">Главная</a>
-	<a href="calc.html">Калькулятор</a>
-	<a href="convert.html">Конвертер</a>
-	<a href="#" onclick="Creator()">Создатель проекта</a><br><br>
-	<input type="text" placeholder="Введи первое число" id="one"><br><br>
-	<input type="text" placeholder="Введи второе число" id="two"><br><br>
-	<button onclick="Plus()">+</button>
-	<button onclick="Minus()">-</button>
-	<button onclick="Ymno()">*</button>
-	<button onclick="Delen()">/</button>
-	<button onclick="Procent()">%</button>
+	<header class="header">
+		<h1>Калькулятор</h1>
+		<a href="index.html">Главная</a>
+		<a href="calc.html">Калькулятор</a>
+		<a href="convert.html">Конвертер</a>
+		<a href="#" onclick="Creator()">Создатель проекта</a><br><br>
+	</header><br><br>
+	
+
+	<main class="calculator">
+		<input type="text" placeholder="Введи первое число" id="one"><br><br>
+		<input type="text" placeholder="Введи операцию (+, -, *, /, %)" id="oper"><br><br>
+		<input type="text" placeholder="Введи второе число" id="two"><br><br>
+		<h1 id="result"></h1>
+		<button onclick="Result()">Посчитать</button>
+	</main>
+
+	<h1 id="res"></h1>
+
+
 	<h2></h2>
 	<script>
 		function Creator() {
-			alert("Илья");
-			alert("Почта создателя: ilyaegorchenko@yandex.ru");
+			let res = document.getElementById("res");
+			res.innerHTML = "Создатель проекта: Илья, электронная почта создателя: ilyaegorchenko@yandex.ru";
 		}
-		function Plus() {
+		
+
+		function Result() {
 			let one = +document.getElementById("one").value;
 			let two = +document.getElementById("two").value;
-			let result = one + two;
-			alert("Результат: " + result);
+			let operator = document.getElementById("oper").value;
+			let result = document.getElementById("result");
+
+			if (operator == "+") {
+				let resultat = one + two;
+				result.innerHTML = "Результат: " + resultat;
+			}
+
+			else if (operator == "-") {
+				let resultat = one - two;
+				result.innerHTML = "Результат: " + resultat;
+			}
+
+			else if (operator == "*") {
+				let resultat = one * two;
+				result.innerHTML = "Результат: " + resultat;
+			}
+
+			else if (operator == "/") {
+				let resultat = one + two;
+				result.innerHTML = "Результат: " + resultat;
+			}
+
+			else if (operator == "%") {
+				let resultat = one + two;
+				result.innerHTML = "Результат: " + resultat;
+			}
+
+			else {
+				result.innerHTML = "Неверная операция!";
+			}
+
 		}
-		function Minus() {
-			let one = +document.getElementById("one").value;
-			let two = +document.getElementById("two").value;
-			let result = one - two;
-			alert("Результат: " + result);
-		}
-		function Ymno() {
-			let one = +document.getElementById("one").value;
-			let two = +document.getElementById("two").value;
-			let result = one * two;
-			alert("Результат: " + result);
-		}
-		function Delen() {
-			let one = +document.getElementById("one").value;
-			let two = +document.getElementById("two").value;
-			let result = one / two;
-			alert("Результат: " + result);
-		}
-		function Procent() {
-			let one = +document.getElementById("one").value;
-			let two = +document.getElementById("two").value;
-			let result = one % two;
-			alert("Результат: " + result);
-		}
+
+
 	</script>
 </body>
 </html>
